@@ -1,0 +1,6 @@
+---
+
+- block:
+
+  - debug: 
+      msg: 'Hello Dummy !'

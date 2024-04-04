@@ -1,0 +1,21 @@
+---
+
+- name: "include supported OS {{ ansible_distribution }} {{ ansible_distribution_version }}"
+  debug:
+    msg: "{{ ansible_distribution }} {{ ansible_distribution_major_version }} is supported"
+
+- name: "Display the main dict items"
+  debug:
+    msg: "{{ merged }}"
+
+- name: include dummy.yml
+  include_tasks:
+    file: "{{ role_path }}/tasks/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}-is-supported/dummy.yml"
+  tags: 
+    - dummy
+    - never
+
+- name: include test.yml 
+  include_tasks:
+    file: "{{ role_path }}/tasks/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}-is-supported/test.yml"
+  tags: test
